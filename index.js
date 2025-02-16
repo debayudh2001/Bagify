@@ -34,7 +34,7 @@ app.use('/user', userRouter)
 app.use('/products', productRouter)
 app.use('/cart', cartRouter)
 
-app.get('https://bagify.vercel.app', (req, res) => {
+app.get('/', (req, res) => {
     const message = req.session.messages || [];
     req.session.messages = []
     res.render("index", { error: message, loggedin: false })
