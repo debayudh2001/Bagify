@@ -9,6 +9,7 @@ const cartRouter = require('./routes/cartRoutes.js')
 const session = require('express-session')
 const passport = require('./config/passportConfig.js')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 require('dotenv').config()
 const app = express()
 const port = process.env.PORT
@@ -16,6 +17,7 @@ const port = process.env.PORT
 connectDb()
 
 app.set("view engine", "ejs")
+app.use(cors())
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
